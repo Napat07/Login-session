@@ -1,0 +1,31 @@
+
+  <div class="form-header">
+    <% if (Object.keys(errors).length === 0) { %>
+      <h1>Login</h1>
+    <% } else { %>
+      <h1 class="errors-heading">Login Again</h1>
+      <a class="errors-list">
+        <% Object.values(errors).forEach(error => { %>
+          <p><%= error.msg %></p>
+        <% }) %>
+        </a>
+    <% } %>
+  </div>
+  
+  <form method="post" action="/" novalidate>
+ 
+    <div class="form-field <%= errors.email ? 'form-field-invalid' : '' %>">
+      <label for="email"></label>
+      <input class="input" id="email" name="email" type="email" placeholder="Email" value="<%= data.email %>" />
+      
+    </div>
+    <div class="form-field <%= errors.password ? 'form-field-invalid' : '' %>">
+        <label for="email"></label>
+        <input class="input" id="password" name="password" type="password" placeholder="Password" value="<%= data.password %>" />
+      
+      </div>
+    <div class="form-actions">
+      <button class="btn" type="submit">Login</button>
+    </div>
+  </form>
+  
